@@ -13,10 +13,56 @@
         {% include('nav.html') %}
         <main>
             <h2>Main</h2>
-             <img src="img/bg2.jpg" alt="">
-            <p>City: {{city.name | title}}, Pincode: {{city.pin}}</p>
+            <p>{{ "abcd"  | upper  }}</p>
+            <!-- <img src="img/bg2.jpg" alt="" width="1200" height="400" class="img-resp"> -->
+            <!-- <p>City: {{city.name | title}}, Pincode: {{city.pin}}</p>
             <p>{{cars | join(" - ")}}</p>
-            <p>{{ "name" | replace('name',"Full Name") }}</p>
+            <p>{{ "name" | replace('name',"Full Name") }}</p> -->
+            
+            {% if age %}
+                <p>{{age}}</p>
+            {% endif %}
+
+             {% if o1 %}
+             <p>{{o1}}</p>
+             {% elif o2 %}
+             <p>{{o2}}</p>
+             {% else %}
+             <p>{{o3}}</p>
+            {% endif %}
+
+            <hr>
+            <h3>Array</h3>
+            <ol>
+                {% for i in cars %}
+                    <li> {{i}} </li>
+                {% endfor %}
+            </ol>
+            <hr>
+            <h3>Object</h3>
+            <table class="table">
+                {% for i,j in city %}
+                    <tr><td>{{i}}</td><td>{{j}}</td></tr>
+                {% endfor %}
+            </table>
+            <hr>
+            <h3>Array of Object</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S No</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 {% for i in data %}
+                    <tr><td>{{loop.index}}</td><td>{{i.name}}</td><td>{{i.type}}</td><td>{{i.price}}</td></tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt harum ipsam impedit delectus expedita reprehenderit? Ea a qui pariatur sit placeat labore dolore, tempore debitis voluptatum nostrum, culpa rem cupiditate!</p>
         </main>
        {% include('footer.html') %}
